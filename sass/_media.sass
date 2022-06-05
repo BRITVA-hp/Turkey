@@ -1,0 +1,74 @@
+@media screen and ( max-width: 1200px )
+    .main
+        padding-top: 200px
+        padding-bottom: 150px
+        &__title
+            font-size: 45px
+        &__subtitle
+            font-size: 18px
+            max-width: 520px
+
+    .header
+        margin-bottom: -114px
+        &__link
+            font-size: 16px
+        &__li
+            margin-right: 20px
+        &__button
+            font-size: 16px
+            width: 220px
+
+@media screen and ( max-width: 991px )
+    .main
+        padding-top: 16px
+        padding-bottom: 20px
+        &__volume
+            right: 50%
+            transform: translateX(50%)
+            bottom: -55px
+        &__button
+            display: none
+            &--mob
+                display: block
+                width: 280px
+        &__box
+            padding: 12px
+            margin-bottom: 144px
+            max-width: 555px
+            backdrop-filter: blur(15px)
+        &__title
+            font-size: 26px
+            margin-bottom: 15px
+        &__subtitle
+            font-size: 14px
+            max-width: 420px
+            margin-bottom: 0
+
+    .header
+        padding-top: 5px
+        padding-bottom: 5px
+        margin-bottom: 0
+        background: #fff
+        &--active
+            background-color: #F2F2F2
+        &__menu
+            display: flex
+        &__wrap
+            display: flex
+        &__nav
+            display: none
+        &__button
+            display: none
+
+@media screen and ( max-width: 575px )
+    .main
+        padding-left: 12px
+        padding-right: 12px
+
+    .header
+        &__phone
+            margin-right: 20px
+            span
+                font-size: 15px
+                &:last-of-type
+                    font-size: 10px
