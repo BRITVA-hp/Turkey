@@ -50,4 +50,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sound('.main__volume', 'main__volume--active', '.main__video-box video');
 
+    // faq
+
+    function faq(buttons, buttonActiveClass, contents) {
+        const buttons_ = document.querySelectorAll(buttons);
+        const contents_ = document.querySelectorAll(contents);
+
+        buttons_.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                button.classList.toggle(buttonActiveClass);
+
+                contents_.forEach((content, index2) => {
+                    if (index == index2) {
+                        if (button.classList.contains(buttonActiveClass)) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            console.log(content.scrollHeight);
+                        } else {
+                            content.style.maxHeight = '0';
+                        }
+                    }
+                });
+            });
+        });
+    }
+
+    faq('.faq__item__header', 'faq__item__header--active', '.faq__item__content');
+
 });

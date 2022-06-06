@@ -4,6 +4,26 @@
         padding-bottom: 150px
 
 @media screen and ( max-width: 1200px )
+    .form
+        padding-top: 180px
+        margin-bottom: 210px
+        &__title
+            margin-bottom: 45px
+        &__form
+            padding: 60px 40px
+            transform: translateY(210px)
+            width: 100%
+            max-width: 870px
+
+    .faq
+        &__box
+            max-width: 650px
+        &__item
+            &__header
+                font-size: 20px
+            &__content
+                font-size: 18px
+
     .section
         &__title
             font-size: 36px
@@ -47,6 +67,26 @@
             width: 220px
 
 @media screen and ( max-width: 991px )
+    .form
+        padding-top: 100px
+        margin-bottom: 123px
+        &__form
+            transform: translateY(123px)
+            max-width: 680px
+            transform: translateY()
+        &__row
+            flex-direction: column
+        &__input-group
+            margin: 0
+            margin-bottom: 20px
+        &__input
+            padding: 20px 22px
+        &__button
+            padding: 20px 0
+
+    .faq
+        padding-top: 80px
+        padding-bottom: 80px
 
     .we
         padding-top: 80px
@@ -91,6 +131,8 @@
             &--mob
                 display: block
                 width: 280px
+                font-size: 16px
+                padding: 15px 0
         &__box
             padding: 12px
             margin-bottom: 144px
@@ -121,6 +163,21 @@
             display: none
 
 @media screen and ( max-width: 767px )
+    .form
+        overflow: hidden
+        background: #F2F2F2
+        padding: 0
+        padding-top: 35px
+        margin-bottom: 0
+        &__form
+            background: transparent
+            transform: translateY(14px)
+            padding: 0 20px
+            max-width: none
+        &__img
+            display: block
+            max-width: none
+
     .we
         &__title
             margin-bottom: 25px
@@ -160,6 +217,44 @@
 
 
 @media screen and ( max-width: 575px )
+    .form
+        &__title
+            margin-bottom: 24px
+        &__input-group
+            margin-bottom: 10px
+        &__input
+            padding: 16px
+            font-size: 14px
+        &__row
+            margin-bottom: 10px
+        &__button
+            padding: 16px 0
+            font-size: 14px
+
+    .faq
+        &__box
+            max-width: 460px
+        &__title
+            margin-bottom: 25px
+        &__item
+            border-bottom: 2px solid #F8CF83
+            padding-bottom: 16px
+            &__button
+                width: 20px
+                height: 20px
+                min-width: 20px
+                &__line
+                    &--1
+                        top: 9px
+                    &--2
+                        left: 9px
+            &__header
+                font-size: 14px
+                &--active
+                    margin-bottom: 10px
+            &__content
+                font-size: 12px
+
     .section
         &__title
             font-size: 20px

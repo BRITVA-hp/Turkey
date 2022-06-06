@@ -1,0 +1,52 @@
+.faq
+    padding-top: 105px
+    padding-bottom: 105px
+    &__box
+        max-width: 926px
+        margin: auto
+    &__title
+        margin-bottom: 50px
+    &__item
+        border-bottom: 3px solid #F8CF83
+        padding-bottom: 22px
+        margin-bottom: 20px
+        &:last-of-type
+            margin-bottom: 0
+        &__content
+            font-size: 26px
+            line-height: 130%
+            padding-right: 56px
+            overflow: hidden
+            max-height: 0
+            transition: 0.3s
+        &__header
+            font-weight: bold
+            font-size: 30px
+            line-height: 130%
+            cursor: pointer
+            transition: 0.3s
+            align-items: flex-start
+            &--active
+                margin-bottom: 22px
+                .faq__item__button__line--2
+                    transform: rotateX(90deg)
+        &__button
+            width: 30px
+            height: 30px
+            min-width: 30px
+            position: relative
+            margin-left: 10px
+            &__line
+                width: 100%
+                background-color: #F8CF83
+                height: 2px
+                position: absolute
+                transition: 0.3s
+                &--1
+                    left: 0
+                    top: 14px
+                &--2
+                    width: 2px
+                    height: 100%
+                    left: 14px
+                    top: 0
