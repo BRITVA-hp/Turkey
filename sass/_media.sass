@@ -1,9 +1,62 @@
+@media screen and ( max-width: 1600px )
+    .objects
+        padding-left: 120px
+        padding-right: 120px
+        &__slider-button
+            &--left
+                left: 20px
+            &--right
+                right: 20px
+
 @media screen and ( max-width: 1500px )
     .we
         padding-top: 150px
         padding-bottom: 150px
 
 @media screen and ( max-width: 1200px )
+    .objects
+        padding-left: 80px
+        padding-right: 80px
+        &__tabs
+            &__button-group
+                margin-bottom: 50px
+            &__button
+                font-size: 16px
+                padding: 0 40px 10px
+        &__card
+            width: 280px
+            height: 407px
+            padding: 7px 7px 14px
+            &__img
+                height: 190px
+                margin-bottom: 10px
+            &__title
+                font-size: 14px
+                margin-bottom: 12px
+            &__text
+                font-size: 12px
+                margin-bottom: 6px
+            &__price
+                font-size: 14px
+            &__button
+                font-size: 16px
+                padding: 14px 0
+        &__field
+            display: none
+            &--min
+                display: flex
+        &__slider-button
+            display: none
+            width: 40px
+            height: 40px
+            bottom: 240px
+            &--min
+                display: block
+            &--left
+                background: url(../img/objects/leftM.png) no-repeat center/contain
+            &--right
+                background: url(../img/objects/rightM.png) no-repeat center/contain
+
     .footer
         &__text
             font-size: 16px
@@ -172,6 +225,31 @@
             display: none
 
 @media screen and ( max-width: 767px )
+    .objects
+        padding-left: 0
+        padding-right: 0
+        padding-bottom: 80px
+        padding-top: 25px
+        &__tabs
+            &__button-group
+                margin-bottom: 16px
+            &__button
+                font-size: 12px
+                padding: 0 15px 5px
+                border-bottom: 3px solid #808080
+                &--active
+                    border-bottom: 3px solid #F8CF83
+        &__window
+            padding-left: 20px
+        &__slider-button
+            bottom: 20px
+            &--left
+                left: 50%
+                transform: translateX(calc(-100% - 20px))
+            &--right
+                right: 50%
+                transform: translateX(calc(100% + 20px))
+
     .form
         overflow: hidden
         background: #F2F2F2
@@ -226,6 +304,17 @@
 
 
 @media screen and ( max-width: 575px )
+    .objects
+        &__title
+            margin-bottom: 25px
+        &__tabs
+            &__button
+                font-size: 10px
+                padding: 0 15px 5px
+                border-bottom: 3px solid #808080
+                &--active
+                    border-bottom: 3px solid #F8CF83
+
     .footer
         background: #F2F2F2
         &__social

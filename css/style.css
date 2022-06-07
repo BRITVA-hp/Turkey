@@ -368,7 +368,7 @@ body {
   text-decoration: none;
   text-align: center; }
   .button:hover {
-    transform: scale(1.05); }
+    transform: scale(1.03); }
   .button--back {
     background: rgba(236, 234, 234, 0.9);
     color: rgba(17, 20, 25, 0.3); }
@@ -420,6 +420,18 @@ body {
     left: -100%; }
   100% {
     left: 100%; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 .section {
   max-width: 1920px;
@@ -651,6 +663,96 @@ body {
       max-width: 255px;
       margin: auto; }
 
+.objects {
+  background: #F2F2F2;
+  padding-top: 45px;
+  padding-bottom: 55px;
+  padding-left: 166px;
+  padding-right: 166px;
+  position: relative; }
+  .objects__field {
+    transition: 0.3s;
+    margin: auto; }
+    .objects__field--min {
+      display: none; }
+  .objects__window {
+    overflow: hidden; }
+  .objects__slider-button {
+    position: absolute;
+    bottom: 349px;
+    width: 75px;
+    height: 75px;
+    cursor: pointer; }
+    .objects__slider-button--min {
+      display: none; }
+    .objects__slider-button--inactive {
+      opacity: 0.4;
+      cursor: default; }
+    .objects__slider-button--left {
+      left: 70px;
+      background: url(../img/objects/left.png) no-repeat center/contain; }
+    .objects__slider-button--right {
+      right: 70px;
+      background: url(../img/objects/right.png) no-repeat center/contain; }
+  .objects__title {
+    margin-bottom: 35px; }
+  .objects__tabs__content {
+    display: none; }
+    .objects__tabs__content--active {
+      display: block;
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+      -webkit-animation-duration: 0.5s;
+      animation-duration: 0.5s; }
+  .objects__tabs__button-group {
+    justify-content: center;
+    margin-bottom: 80px; }
+  .objects__tabs__button {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 120%;
+    padding: 0 76px 14px;
+    border-bottom: 5px solid #302F2A;
+    cursor: pointer;
+    transition: 0.3s; }
+    .objects__tabs__button--active {
+      color: #F8CF83;
+      border-bottom: 5px solid #F8CF83; }
+  .objects__card {
+    width: 490px;
+    height: 664px;
+    padding: 12px 12px 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(128, 128, 128, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .objects__card__img {
+      width: 100%;
+      height: 326px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 20px; }
+      .objects__card__img img {
+        max-width: none; }
+    .objects__card__title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 130%;
+      margin-bottom: 6px; }
+    .objects__card__text {
+      font-size: 20px;
+      line-height: 130%;
+      margin-bottom: 10px; }
+    .objects__card__price {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 130%; }
+
 .we {
   padding-top: 160px;
   padding-bottom: 340px;
@@ -800,12 +902,62 @@ body {
     margin-bottom: 20px;
     display: block; }
 
+@media screen and (max-width: 1600px) {
+  .objects {
+    padding-left: 120px;
+    padding-right: 120px; }
+    .objects__slider-button--left {
+      left: 20px; }
+    .objects__slider-button--right {
+      right: 20px; } }
+
 @media screen and (max-width: 1500px) {
   .we {
     padding-top: 150px;
     padding-bottom: 150px; } }
 
 @media screen and (max-width: 1200px) {
+  .objects {
+    padding-left: 80px;
+    padding-right: 80px; }
+    .objects__tabs__button-group {
+      margin-bottom: 50px; }
+    .objects__tabs__button {
+      font-size: 16px;
+      padding: 0 40px 10px; }
+    .objects__card {
+      width: 280px;
+      height: 407px;
+      padding: 7px 7px 14px; }
+      .objects__card__img {
+        height: 190px;
+        margin-bottom: 10px; }
+      .objects__card__title {
+        font-size: 14px;
+        margin-bottom: 12px; }
+      .objects__card__text {
+        font-size: 12px;
+        margin-bottom: 6px; }
+      .objects__card__price {
+        font-size: 14px; }
+      .objects__card__button {
+        font-size: 16px;
+        padding: 14px 0; }
+    .objects__field {
+      display: none; }
+      .objects__field--min {
+        display: flex; }
+    .objects__slider-button {
+      display: none;
+      width: 40px;
+      height: 40px;
+      bottom: 240px; }
+      .objects__slider-button--min {
+        display: block; }
+      .objects__slider-button--left {
+        background: url(../img/objects/leftM.png) no-repeat center/contain; }
+      .objects__slider-button--right {
+        background: url(../img/objects/rightM.png) no-repeat center/contain; }
   .footer__text {
     font-size: 16px; }
   .footer__tel {
@@ -956,6 +1108,29 @@ body {
       display: none; } }
 
 @media screen and (max-width: 767px) {
+  .objects {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 80px;
+    padding-top: 25px; }
+    .objects__tabs__button-group {
+      margin-bottom: 16px; }
+    .objects__tabs__button {
+      font-size: 12px;
+      padding: 0 15px 5px;
+      border-bottom: 3px solid #808080; }
+      .objects__tabs__button--active {
+        border-bottom: 3px solid #F8CF83; }
+    .objects__window {
+      padding-left: 20px; }
+    .objects__slider-button {
+      bottom: 20px; }
+      .objects__slider-button--left {
+        left: 50%;
+        transform: translateX(calc(-100% - 20px)); }
+      .objects__slider-button--right {
+        right: 50%;
+        transform: translateX(calc(100% + 20px)); }
   .form {
     overflow: hidden;
     background: #F2F2F2;
@@ -1004,6 +1179,14 @@ body {
         display: none; } }
 
 @media screen and (max-width: 575px) {
+  .objects__title {
+    margin-bottom: 25px; }
+  .objects__tabs__button {
+    font-size: 10px;
+    padding: 0 15px 5px;
+    border-bottom: 3px solid #808080; }
+    .objects__tabs__button--active {
+      border-bottom: 3px solid #F8CF83; }
   .footer {
     background: #F2F2F2; }
     .footer__social {
