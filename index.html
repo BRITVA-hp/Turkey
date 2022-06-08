@@ -78,7 +78,7 @@
         <section class="section main">
             
             <div class="main__video-box">     
-                <video preload="auto" autoplay="autoplay" loop="loop" playsinline>         
+                <video preload="auto" loop="loop" playsinline>         
                     <source src="video/Turkey.webm" type="video/webm"> 
                     <source src="video/Turkey.mp4" type="video/mp4">             
                 </video> 
@@ -174,7 +174,7 @@
                                     <p class="objects__card__price">Цена: 1 350 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more1 data-modal data-cat="buy" class="button objects__card__button">Подробнее</button>
                             </div>
     
                             <div class="objects__card objects__card--buy">
@@ -187,7 +187,7 @@
                                     <p class="objects__card__price">Цена: 1 450 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more1 data-modal data-cat="buy" class="button objects__card__button">Подробнее</button>
                             </div>
     
                             <div class="objects__card objects__card--buy">
@@ -200,7 +200,7 @@
                                     <p class="objects__card__price">Цена: 1 450 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more1 data-modal data-cat="buy" class="button objects__card__button">Подробнее</button>
                             </div>
     
                         </div>
@@ -225,7 +225,7 @@
                                     <p class="objects__card__price">Цена: 1 350 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more2 data-modal data-cat="buy" class="button objects__card__button">Подробнее</button>
                             </div>
     
                             <div class="objects__card objects__card--min objects__card--buy--min">
@@ -238,7 +238,7 @@
                                     <p class="objects__card__price">Цена: 1 450 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more2 data-modal data-cat="buy" class="button objects__card__button">Подробнее</button>
                             </div>
     
                             <div class="objects__card objects__card--min objects__card--buy--min">
@@ -251,7 +251,7 @@
                                     <p class="objects__card__price">Цена: 1 450 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more2 data-modal data-cat="buy" class="button objects__card__button">Подробнее</button>
                             </div>
     
                         </div>
@@ -279,7 +279,7 @@
                                     <p class="objects__card__price">Цена: 18 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more3 data-modal data-cat="rent" class="button objects__card__button">Подробнее</button>
                             </div>
     
                         </div>
@@ -303,7 +303,7 @@
                                     <p class="objects__card__price">Цена: 18 000 тур.лир</p>
                                 </div>
     
-                                <button class="button objects__card__button">Подробнее</button>
+                                <button data-more4 data-modal data-cat="rent" class="button objects__card__button">Подробнее</button>
                             </div>
     
                         </div>
@@ -479,6 +479,135 @@
         </div>
     </footer>
     <!-- /.footer section -->
+
+    <div class="modal modal-obj">
+        <div class="modal-obj__dialog">
+            <picture class="modal-obj__close">
+                <source srcset="img/closeM.png" media="(max-width: 767px)">
+                <img src="img/close.png" alt="migrant">
+            </picture>
+
+            <div class="modal-obj__slider">
+                <img src="img/left.png" alt="left" class="modal-obj__arrow modal-obj__arrow--left">
+                <img src="img/right.png" alt="right" class="modal-obj__arrow modal-obj__arrow--right">
+
+                <div class="modal-obj__img modal-obj__img--min modal-obj__img--1">
+                    <img src="img/objects/buy/apartment1/img1.jpg" alt="apartment">
+                </div>
+
+                <div class="modal-obj__img modal-obj__img--big">
+                    <img src="img/objects/buy/apartment1/img2.jpg" alt="apartment">
+                </div>
+
+                <div class="modal-obj__img modal-obj__img--min modal-obj__img--3">
+                    <img src="img/objects/buy/apartment1/img3.jpg" alt="apartment">
+                </div>
+
+            </div>
+
+            <div class="modal-obj__window">
+                <div class="row modal-obj__field">
+
+                    <!-- <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img1.jpg" alt="apartment">
+                    </div> -->
+                    <!-- <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img2.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img3.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img4.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img5.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img6.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img7.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img8.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img9.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img10.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img11.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img12.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img13.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img14.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img15.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img16.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img17.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img18.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img19.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img20.jpg" alt="apartment">
+                    </div>
+                    <div class="modal-obj__card">
+                        <img src="img/objects/buy/apartment1/img21.jpg" alt="apartment">
+                    </div> -->
+
+                </div>
+            </div>
+
+            <div class="modal-obj__row row">
+
+                <div class="modal-obj__box modal-obj__box--1">
+                    <p class="modal-obj__area">Квартира  150 м²</p>
+                    <p class="modal-obj__title">Особенности:</p>
+                    <ul class="modal-obj__ul modal-obj__text modal-obj__ul--feature">
+                        <!-- <li class="modal-obj__li modal-obj__text">просторная квартира планировки 3+1 150 м2</li> -->
+                        <!-- <li class="modal-obj__li modal-obj__text">7 этаж / 8 этажного дома</li>
+                        <li class="modal-obj__li modal-obj__text">свежий ремонт (полностью обновленная квартира)</li>
+                        <li class="modal-obj__li modal-obj__text">кухня (встроенная)</li>
+                        <li class="modal-obj__li modal-obj__text">удобные светлые комнаты</li>
+                        <li class="modal-obj__li modal-obj__text">2 балкона</li>
+                        <li class="modal-obj__li modal-obj__text">отдельные ванна и туалет</li> -->
+                    </ul>
+                    <p class="modal-obj__text modal-obj__add"></p>
+                </div>
+
+                <div class="modal-obj__box modal-obj__box--2">
+                    <p class="modal-obj__title">Местоположение:</p>
+                    <ul class="modal-obj__ul modal-obj__text modal-obj__ul--location">
+                        <!-- <li class="modal-obj__li modal-obj__text">район кепез дюденбаши</li>
+                        <li class="modal-obj__li modal-obj__text">сетевые супермаркеты и пекарня в шаговой доступности</li>
+                        <li class="modal-obj__li modal-obj__text">удобная транспортная развязка)</li>
+                        <li class="modal-obj__li modal-obj__text">государственная школа</li> -->
+                    </ul>
+                    <p class="modal-obj__price">Цена: 1 350 000 тур.лир</p>
+                    <a href="#" class="button modal-obj__button">Подробнее</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
     

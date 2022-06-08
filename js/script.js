@@ -33,12 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // sound
 
-    function sound(button, buttonActiveClass, video) {
+    async function sound(button, buttonActiveClass, video) {
         const button_ = document.querySelector(button);
         const video_ = document.querySelector(video);
-
+        // await video_.play();
+        video_.addEventListener('ready', () => {
+            video_.play();
+        });
+        // window.setTimeout(() => {
+        //     video_.play(); 
+        // }, 2000);
         video_.volume = 0;
         button_.addEventListener('click', () => {
+            video_.play(); 
             button_.classList.toggle(buttonActiveClass);
             if ( button_.classList.contains(buttonActiveClass)) {
                 video_.volume = 0.7;
@@ -46,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 video_.volume = 0;
             }
         });
+        // await video_.play();
+
     }
 
     sound('.main__volume', 'main__volume--active', '.main__video-box video');
@@ -64,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (index == index2) {
                         if (button.classList.contains(buttonActiveClass)) {
                             content.style.maxHeight = content.scrollHeight + 'px';
-                            console.log(content.scrollHeight);
                         } else {
                             content.style.maxHeight = '0';
                         }
@@ -302,5 +310,355 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.remove(activeClass);
         });
     }
+
+    // modal
+
+    function calcScroll() {
+        let div = document.createElement('div');
+      
+        div.style.width = '50px';
+        div.style.height = '50px';
+        div.style.overflowY = 'scroll';
+        div.style.visibility = 'hidden';
+      
+        document.body.appendChild(div);
+        let scarollWidth = div.offsetWidth - div.clientWidth;
+        div.remove();
+      
+        return scarollWidth;
+    }
+
+    let scrollWidth = calcScroll();
+
+    function modal(modal, modalActiveClass, triggers, modalClose) {
+        const triggers_ = document.querySelectorAll(triggers),
+              modal_ = document.querySelector(modal),
+              modalClose_ = document.querySelector(modalClose);
+
+        if (triggers_.length > 0) {
+            triggers_.forEach(item => {
+                item.addEventListener('click', () => {
+                    modal_.classList.add(modalActiveClass);
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.marginRight = `${scrollWidth}px`;
+                });
+            });
+
+            modalClose_.addEventListener('click', () => {
+                modal_.classList.remove(modalActiveClass);
+                document.body.style.overflow = '';
+                document.body.style.marginRight = '0px';
+            });
+    
+            modal_.addEventListener('click', (e) => {
+                if (e.target.classList.contains(modal.replace(/\./, ''))) {
+                    modal_.classList.remove(modalActiveClass);
+                    document.body.style.overflow = '';
+                    document.body.style.marginRight = '0px';
+                }
+            });
+        }
+    }
+
+    modal('.modal-obj', 'modal--active', '[data-modal]', '.modal-obj__close img');
+
+    // slider and data in modal
+
+    const data = {
+        buy: {
+            0: {
+                img: [
+                    'img/objects/buy/apartment1/img1.jpg',
+                    'img/objects/buy/apartment1/img2.jpg',
+                    'img/objects/buy/apartment1/img3.jpg',
+                    'img/objects/buy/apartment1/img4.jpg',
+                    'img/objects/buy/apartment1/img5.jpg',
+                    'img/objects/buy/apartment1/img6.jpg',
+                    'img/objects/buy/apartment1/img7.jpg',
+                    'img/objects/buy/apartment1/img8.jpg',
+                    'img/objects/buy/apartment1/img9.jpg',
+                    'img/objects/buy/apartment1/img10.jpg',
+                    'img/objects/buy/apartment1/img11.jpg',
+                    'img/objects/buy/apartment1/img12.jpg',
+                    'img/objects/buy/apartment1/img13.jpg',
+                    'img/objects/buy/apartment1/img14.jpg',
+                    'img/objects/buy/apartment1/img15.jpg',
+                    'img/objects/buy/apartment1/img16.jpg',
+                    'img/objects/buy/apartment1/img17.jpg',
+                    'img/objects/buy/apartment1/img18.jpg',
+                    'img/objects/buy/apartment1/img19.jpg',
+                    'img/objects/buy/apartment1/img20.jpg',
+                    'img/objects/buy/apartment1/img21.jpg'
+                ],
+                area: 'Квартира  150 м²',
+                feature: [
+                    'просторная квартира планировки 3+1 150 м2',
+                    '7 этаж / 8 этажного дома',
+                    'свежий ремонт (полностью обновленная квартира)',
+                    'кухня (встроенная)',
+                    'удобные светлые комнаты',
+                    '2 балкона',
+                    'отдельные ванна и туалет'
+                ],
+                text: '',
+                location: [
+                    'район кепез дюденбаши',
+                    'сетевые супермаркеты и пекарня в шаговой доступности',
+                    'удобная транспортная развязка',
+                    'государственная школа'
+                ],
+                price: 'Цена: 1 350 000 тур.лир'
+            },
+            1: {
+                img: [
+                    'img/objects/buy/apartment2/img1.jpg',
+                    'img/objects/buy/apartment2/img2.jpg',
+                    'img/objects/buy/apartment2/img3.jpg',
+                    'img/objects/buy/apartment2/img4.jpg',
+                    'img/objects/buy/apartment2/img5.jpg',
+                    'img/objects/buy/apartment2/img6.jpg',
+                    'img/objects/buy/apartment2/img7.jpg',
+                    'img/objects/buy/apartment2/img8.jpg',
+                    'img/objects/buy/apartment2/img9.jpg',
+                    'img/objects/buy/apartment2/img10.jpg',
+                    'img/objects/buy/apartment2/img11.jpg',
+                    'img/objects/buy/apartment2/img12.jpg',
+                    'img/objects/buy/apartment2/img13.jpg',
+                    'img/objects/buy/apartment2/img14.jpg',
+                    'img/objects/buy/apartment2/img15.jpg',
+                    'img/objects/buy/apartment2/img16.jpg',
+                    'img/objects/buy/apartment2/img17.jpg',
+                    'img/objects/buy/apartment2/img18.jpg',
+                    'img/objects/buy/apartment2/img19.jpg',
+                    'img/objects/buy/apartment2/img20.jpg',
+                    'img/objects/buy/apartment2/img21.jpg'
+                ],
+                area: 'Квартира  165 м²',
+                feature: [
+                    '3+1 165 м2  дуплекс (+28 m2 с возможностью расширения)',
+                    'отдельная кухня (встроенная)',
+                    'удобные светлые комнаты',
+                    'гардеробная',
+                    '2 балкона и терраса',
+                    'природный газ у двери',
+                    'на всех окнах жалюзи и москитные сетки',
+                    'система сигнализации',
+                    'видео-диафон'
+                ],
+                text: '<strong>Нижняя подсекция:</strong> холл, гостиная, кухня, ванная комната, раздельный туалет,  балкон. <br> <strong>Верхняя подсекция:</strong>  спальня, детская комната, балкон, терраса с видом на лесополосу.',
+                location: [
+                    'район кепез кютюкчю',
+                    'центральное расположение',
+                    'вдоль центральной дороги и канала',
+                    'близость к кепезкому военному филиалу',
+                    'стороны : восток / юг / север',
+                    'сетевые супермаркеты и пекарня',
+                    'торговый центр тахтакале',
+                    'государственные школы',
+                    'районный рынок'
+                ],
+                price: 'Цена: 1 450 000 тур.лир'
+            },
+            2: {
+                img: [
+                    'img/objects/buy/apartment3/img1.jpg',
+                    'img/objects/buy/apartment3/img2.jpg',
+                    'img/objects/buy/apartment3/img3.jpg',
+                    'img/objects/buy/apartment3/img4.jpg',
+                    'img/objects/buy/apartment3/img5.jpg',
+                    'img/objects/buy/apartment3/img6.jpg',
+                    'img/objects/buy/apartment3/img7.jpg',
+                    'img/objects/buy/apartment3/img8.jpg',
+                    'img/objects/buy/apartment3/img9.jpg',
+                    'img/objects/buy/apartment3/img10.jpg',
+                    'img/objects/buy/apartment3/img11.jpg',
+                    'img/objects/buy/apartment3/img12.jpg',
+                    'img/objects/buy/apartment3/img13.jpg',
+                    'img/objects/buy/apartment3/img14.jpg',
+                    'img/objects/buy/apartment3/img15.jpg',
+                    'img/objects/buy/apartment3/img16.jpg',
+                    'img/objects/buy/apartment3/img17.jpg',
+                    'img/objects/buy/apartment3/img18.jpg',
+                    'img/objects/buy/apartment3/img19.jpg',
+                    'img/objects/buy/apartment3/img20.jpg',
+                    'img/objects/buy/apartment3/img21.jpg',
+                    'img/objects/buy/apartment3/img22.jpg'
+                ],
+                area: 'Квартира  160 м²',
+                feature: [
+                    '4+1 160 м2 садовый дуплекс (двухэтажная квартира на первом этаже с выходом в сад)',
+                    'верхняя подсекция: холл, гостиная, кухня, ванная комната, балкон (84 м2)',
+                    'нижняя подсекция:  2 спальни, детская, ванная комната (76 м2)',
+                    'при желании можно разделить на две квартиры',
+                    'гардеробная',
+                    'отдельная кухня и удобные светлые комнаты',
+                    'две отдельные ванные комнаты, гардероб, термосифон',
+                    'открытая парковка',
+                    'природный газ в доме'
+                ],
+                text: '',
+                location: [
+                    'район муратпаша енигюн',
+                    'центральное расположение',
+                    'марканталья - 10 мин',
+                    'стороны : восток / запад / север',
+                    'сетевые супермаркеты',
+                    'пекарня',
+                    'образовательные заведения',
+                    'районный рынок',
+                    'больница',
+                    'центральная дорога'
+                ],
+                price: 'Цена: 2 550 000 тур.лир'
+
+            }
+        },
+        rent: {
+            0: {
+                img: [
+                    'img/objects/rent/apartment1/img1.jpg',
+                    'img/objects/rent/apartment1/img2.jpg',
+                    'img/objects/rent/apartment1/img3.jpg',
+                    'img/objects/rent/apartment1/img4.jpg',
+                ],
+                area: 'Квартира  160 м²',
+                feature: [
+                    'просторная квартира планировки 1+1 45 м2',
+                    'полностью меблированная (в наличие все необходимое для комфортного проживания)',
+                    'американская кухня',
+                    'удобные светлые комнаты',
+                    'кондиционер'
+                ],
+                text: '6.000 тур.лир + 6.000 тур. лир депозит + 6.000 тур. лир комиссионные',
+                location: [
+                    'район муратпаша кызыларык',
+                    'сетевые супермаркеты и пекарня в шаговой доступности',
+                    'удобная транспортная развязка',
+                    'государственная школа',
+                    'близость к марканталии',
+                    'недалеко от центра города',
+                    'больница'
+                ],
+                price: 'Цена: 18 000 тур.лир'
+
+            }
+        }
+    };
+
+    function sliderModal({_triggers, _arrowLeft, _arrowRight, _iamges, _area, _feature, _text, _location, _price, _field}) {
+        const triggers_ = document.querySelectorAll(_triggers);
+        const iamges_ = document.querySelectorAll(_iamges);
+        const area_ = document.querySelector(_area);
+        const feature_ = document.querySelector(_feature);
+        const text_ = document.querySelector(_text);
+        const location_ = document.querySelector(_location);
+        const price_ = document.querySelector(_price);
+        const arrowLeft_ = document.querySelector(_arrowLeft);
+        const arrowRight_ = document.querySelector(_arrowRight);
+        const field_ = document.querySelector(_field);
+
+        triggers_.forEach((trigger, index) => {
+            trigger.addEventListener('click', () => {
+                const category = trigger.getAttribute('data-cat');
+                const arr = data[category][index].img.slice();
+
+                iamges_.forEach((img, index2) => {
+                    img.setAttribute('src', arr[index2]);
+                });
+
+                field_.innerHTML = "";
+                data[category][index].img.forEach(item => {
+                    field_.insertAdjacentHTML('beforeend', 
+                    `
+                    <div class="modal-obj__card">
+                        <img src=${item} alt="apartment">
+                    </div>
+                    `)
+                });
+
+                area_.textContent = data[category][index].area;
+
+                feature_.innerHTML = "";
+                data[category][index].feature.forEach(item => {
+                    feature_.insertAdjacentHTML('beforeend', `<li class="modal-obj__li modal-obj__text">${item}</li>`)
+                });
+
+                text_.innerHTML = '';
+                text_.innerHTML = data[category][index].text;
+
+                location_.innerHTML = "";
+                data[category][index].location.forEach(item => {
+                    location_.insertAdjacentHTML('beforeend', `<li class="modal-obj__li modal-obj__text">${item}</li>`)
+                });
+
+                price_.textContent = data[category][index].price;
+
+
+                arrowRight_.addEventListener('click', () => {
+                    arr.push(arr.shift());
+                    iamges_.forEach((img, index2) => {
+                        img.setAttribute('src', arr[index2]);
+                    });
+                });
+                arrowLeft_.addEventListener('click', () => {
+                    arr.unshift(arr.pop());
+                    iamges_.forEach((img, index2) => {
+                        img.setAttribute('src', arr[index2]);
+                    });
+                });
+
+                // console.log(data[category][index].img);
+            });
+        });
+    }
+
+    sliderModal({
+        _triggers: '[data-more1]',
+        _iamges: '.modal-obj__img img',
+        _area: '.modal-obj__area',
+        _feature: '.modal-obj__ul--feature',
+        _text: '.modal-obj__add',
+        _location: '.modal-obj__ul--location',
+        _price: '.modal-obj__price',
+        _arrowLeft: '.modal-obj__arrow--left',
+        _arrowRight: '.modal-obj__arrow--right',
+        _field: '.modal-obj__field'
+    })
+    sliderModal({
+        _triggers: '[data-more2]',
+        _iamges: '.modal-obj__img img',
+        _area: '.modal-obj__area',
+        _feature: '.modal-obj__ul--feature',
+        _text: '.modal-obj__add',
+        _location: '.modal-obj__ul--location',
+        _price: '.modal-obj__price',
+        _arrowLeft: '.modal-obj__arrow--left',
+        _arrowRight: '.modal-obj__arrow--right',
+        _field: '.modal-obj__field'
+    })
+    sliderModal({
+        _triggers: '[data-more3]',
+        _iamges: '.modal-obj__img img',
+        _area: '.modal-obj__area',
+        _feature: '.modal-obj__ul--feature',
+        _text: '.modal-obj__add',
+        _location: '.modal-obj__ul--location',
+        _price: '.modal-obj__price',
+        _arrowLeft: '.modal-obj__arrow--left',
+        _arrowRight: '.modal-obj__arrow--right',
+        _field: '.modal-obj__field'
+    })
+    sliderModal({
+        _triggers: '[data-more4]',
+        _iamges: '.modal-obj__img img',
+        _area: '.modal-obj__area',
+        _feature: '.modal-obj__ul--feature',
+        _text: '.modal-obj__add',
+        _location: '.modal-obj__ul--location',
+        _price: '.modal-obj__price',
+        _arrowLeft: '.modal-obj__arrow--left',
+        _arrowRight: '.modal-obj__arrow--right',
+        _field: '.modal-obj__field'
+    })
 
 });

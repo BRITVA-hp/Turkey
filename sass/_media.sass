@@ -14,6 +14,25 @@
         padding-bottom: 150px
 
 @media screen and ( max-width: 1200px )
+    .modal
+        &-obj
+            &__close
+                width: 40px
+                right: 25px
+                top: 25px
+            &__text
+                font-size: 20px
+            &__title
+                font-size: 20px
+            &__price, &__area
+                font-size: 22px
+            &__area
+                margin-bottom: 20px
+            &__img
+                &--big
+                    width: 650px
+                    height: 430px
+
     .objects
         padding-left: 80px
         padding-right: 80px
@@ -129,6 +148,30 @@
             width: 220px
 
 @media screen and ( max-width: 991px )
+    .modal
+        &-obj
+            &__slider
+                margin-bottom: 30px
+            &__button
+                width: 250px
+                font-size: 18px
+                padding: 18px 0
+            &__dialog
+                padding: 40px 60px
+            &__arrow
+                width: 40px
+                &--left
+                    left: -50px
+                &--right
+                    right: -50px
+            &__img
+                &--min
+                    width: 350px
+                    height: 245px
+                &--big
+                    width: 500px
+                    height: 330px
+
     .form
         padding-top: 100px
         margin-bottom: 123px
@@ -225,6 +268,43 @@
             display: none
 
 @media screen and ( max-width: 767px )
+    .modal
+        &-obj
+            &__button
+                width: 100%
+                max-width: 280px
+            &__ul
+                padding-left: 20px
+                margin-bottom: 10px
+            &__text
+                font-size: 14px
+            &__title
+                font-size: 14px
+            &__price
+                font-size: 16px
+                margin-bottom: 10px
+            &__area
+                margin-bottom: 10px
+                font-size: 16px
+            &__dialog
+                padding: 40px
+            &__row
+                flex-direction: column
+                align-items: center
+                // text-align: center
+            &__box
+                width: 100%
+                max-width: none
+                &--1
+                    margin-bottom: 10px
+            &__close
+                width: auto
+                top: 10px
+            &__window
+                display: block
+            &__slider
+                display: none
+
     .objects
         padding-left: 0
         padding-right: 0
@@ -304,6 +384,11 @@
 
 
 @media screen and ( max-width: 575px )
+    .modal
+        &-obj
+            &__dialog
+                padding: 40px 20px
+
     .objects
         &__title
             margin-bottom: 25px
