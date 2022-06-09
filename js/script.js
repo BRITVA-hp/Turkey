@@ -41,29 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
         itemsClose: '.header__menu__li'
     });
 
-    // sound
+    // video, sound
 
     function sound(button, buttonActiveClass, video) {
         const button_ = document.querySelector(button);
         const video_ = document.querySelector(video);
-        // video_.volume = 0;
-        // video_.play();
         video_.onloadeddata = function() {
-            video_.volume = 0;
-            video_.play();
+            video_.muted = true;
             button_.addEventListener('click', () => {
                 video_.play();
                 button_.classList.toggle(buttonActiveClass);
                 if ( button_.classList.contains(buttonActiveClass)) {
-                    video_.volume = 0.7;
+                    video_.muted = false;
                 } else {
-                    video_.volume = 0;
+                    video_.muted = true;
                 }
             });
-            // button_.click();
         };
-        
-        // await video_.play();
 
     }
 
