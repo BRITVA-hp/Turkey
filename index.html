@@ -24,19 +24,19 @@
                     <nav class="header__nav">
                         <ul class="header__ul row">
                             <li class="header__li">
-                                <a href="#" class="header__link">Аренда</a>
+                                <a href="#object" class="header__link header__link--rent">Аренда</a>
                             </li>
                             <li class="header__li">
-                                <a href="#" class="header__link">Продажа</a>
+                                <a href="#object" class="header__link header__link--buy">Продажа</a>
                             </li>
                             <li class="header__li">
-                                <a href="#" class="header__link">Компания</a>
+                                <a href="#we" class="header__link">Компания</a>
                             </li>
                             <li class="header__li">
-                                <a href="#" class="header__link">Контакты</a>
+                                <a href="#footer" class="header__link">Контакты</a>
                             </li>
                             <li class="header__li">
-                                <a href="#" class="header__link">Новости</a>
+                                <a href="#advantages" class="header__link">Новости</a>
                             </li>
                         </ul>
                     </nav>
@@ -62,11 +62,11 @@
 
         <div class="header__menu">
             <ul class="header__menu__ul">
-                <li class="header__menu__li"><a href="#" class="header__menu__link">Аренда</a></li>
-                <li class="header__menu__li"><a href="#" class="header__menu__link">Продажа</a></li>
-                <li class="header__menu__li"><a href="#" class="header__menu__link">Компания</a></li>
-                <li class="header__menu__li"><a href="#" class="header__menu__link">Контакты</a></li>
-                <li class="header__menu__li"><a href="#" class="header__menu__link">Новости</a></li>
+                <li class="header__menu__li"><a href="#object" class="header__menu__link header__link--rent">Аренда</a></li>
+                <li class="header__menu__li"><a href="#object" class="header__menu__link header__link--buy">Продажа</a></li>
+                <li class="header__menu__li"><a href="#we" class="header__menu__link">Компания</a></li>
+                <li class="header__menu__li"><a href="#footer" class="header__menu__link">Контакты</a></li>
+                <li class="header__menu__li"><a href="#advantages" class="header__menu__link">Новости</a></li>
             </ul>
         </div>
 
@@ -78,7 +78,7 @@
         <section class="section main">
             
             <div class="main__video-box">     
-                <video preload="auto" loop="loop" playsinline>         
+                <video preload="auto" controls autoplay loop="loop" playsinline webkit-playsinline>         
                     <source src="video/Turkey.webm" type="video/webm"> 
                     <source src="video/Turkey.mp4" type="video/mp4">             
                 </video> 
@@ -87,14 +87,14 @@
             <div class="main__box">
                 <h1 class="main__title">Путешествуйте с комфортом!</h1>
                 <h2 class="main__subtitle">Дополнительные скидки на аренду квартиры до 30% + бесплатный трансфер до дома!</h2>
-                <a href="#" class="button main__button">Подробнее</a>
+                <a href="#form" class="button main__button">Подробнее</a>
                 <div class="main__volume"></div>
             </div>
-            <a href="#" class="button main__button button--effect main__button--mob">Подробнее</a>
+            <a href="#form" class="button main__button button--effect main__button--mob">Подробнее</a>
         </section>
         <!-- /.section main -->
 
-        <section class="section advantages">
+        <section id="advantages" class="section advantages">
             <div class="container advantages__container">
                 <div class="advantages__row">
 
@@ -143,7 +143,7 @@
         </section>
         <!-- /.section advantages -->
 
-        <section class="section objects">
+        <section id="object" class="section objects">
 
             <div class="container objects__container">
                 <h3 class="section__title objects__title">Объекты</h3>
@@ -316,7 +316,7 @@
         </section>
         <!-- /.section objects -->
 
-        <section class="section we">
+        <section id="we" class="section we">
 
             <div class="container we__container">
                 <h3 class="section__title we__title">О компании</h3>
@@ -348,7 +348,7 @@
 
         <section class="section form">
 
-            <form action="#" class="form__form">
+            <form id="form" action="#" class="form__form">
                 <h3 class="section__title form__title">Оставить заявку</h3>
 
                 <div class="form__row row">
@@ -453,7 +453,7 @@
 
     </main>
 
-    <footer class="footer section">
+    <footer id="footer" class="footer section">
         <div class="container footer__conainer">
             <div class="row footer__row">
 
@@ -468,10 +468,10 @@
                         <p class="footer__text">Бесплатный звонок</p>
                     </a>
                     <div class="footer__box__row row">
-                        <a class="footer__social" href="#"><img src="img/footer/logo1.png" alt="telegram"></a>
-                        <a class="footer__social" href="#"><img src="img/footer/logo2.png" alt="viber"></a>
-                        <a class="footer__social" href="#"><img src="img/footer/logo3.png" alt="instagram"></a>
-                        <a class="footer__social" href="#"><img src="img/footer/logo4.png" alt="facebook"></a>
+                        <a class="footer__social" href="https://t.me/feniksyatirim"><img src="img/footer/logo1.png" alt="telegram"></a>
+                        <a class="footer__social" href="https://wa.me/message/EG3NJEVEGDYWE1"><img src="img/footer/logo2.png" alt="WhatsApp"></a>
+                        <a class="footer__social" href="https://instagram.com/feniksyatirim?igshid=NmZiMzY2Mjc="><img src="img/footer/logo3.png" alt="instagram"></a>
+                        <a class="footer__social" href="https://www.facebook.com/Feniksyatirim/"><img src="img/footer/logo4.png" alt="facebook"></a>
                     </div>
                 </div>
 
@@ -507,71 +507,6 @@
 
             <div class="modal-obj__window">
                 <div class="row modal-obj__field">
-
-                    <!-- <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img1.jpg" alt="apartment">
-                    </div> -->
-                    <!-- <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img2.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img3.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img4.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img5.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img6.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img7.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img8.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img9.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img10.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img11.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img12.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img13.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img14.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img15.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img16.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img17.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img18.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img19.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img20.jpg" alt="apartment">
-                    </div>
-                    <div class="modal-obj__card">
-                        <img src="img/objects/buy/apartment1/img21.jpg" alt="apartment">
-                    </div> -->
-
                 </div>
             </div>
 
@@ -601,11 +536,19 @@
                         <li class="modal-obj__li modal-obj__text">государственная школа</li> -->
                     </ul>
                     <p class="modal-obj__price">Цена: 1 350 000 тур.лир</p>
-                    <a href="#" class="button modal-obj__button">Подробнее</a>
+                    <a href="#form" class="button modal-obj__button">Подробнее</a>
                 </div>
 
             </div>
 
+        </div>
+    </div>
+
+    <div class="modal modal-thank">
+        <div class="modal-thank__dialog">
+            <img src="img/closeThank.png" alt="close" class="modal-thank__close">
+            <h3 class="modal-thank__title">Заявка отправлена!</h3>
+            <p class="modal-thank__text">Мы получили вашу заявку. <br> Наш менеджер свяжится с вами.</p>
         </div>
     </div>
 

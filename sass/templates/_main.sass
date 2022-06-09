@@ -31,6 +31,19 @@
             height: auto
             min-width: 100%
             min-height: 100%
+            pointer-events: none
+            object-fit: cover
+            &::-webkit-media-controls
+                display:none !important
+            &::-webkit-media-controls-panel
+                display: none!important
+                -webkit-appearance: none
+            &::-webkit-media-controls-play-button
+                display: none!important
+                -webkit-appearance: none
+            &::-webkit-media-controls-start-playback-button
+                display: none!important
+                -webkit-appearance: none
     &__button
         width: 290px
         &--mob

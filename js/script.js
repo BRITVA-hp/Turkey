@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // burger
-    function burger({burger, burgerActiveClass, header, headerActiveClass, headerMenu, itemHeight, itemMarginBottom, headerMenuPaddingTopBottom}) {
+    function burger({burger, burgerActiveClass, header, headerActiveClass, headerMenu, itemHeight, itemMarginBottom, headerMenuPaddingTopBottom, itemsClose}) {
 
+        const itemsClose_ = document.querySelectorAll(itemsClose);
         const burger_ = document.querySelector(burger);
         const header_ = document.querySelector(header);
         const headerMenu_ = document.querySelector(headerMenu);
@@ -18,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        itemsClose_.forEach(item => {
+            item.addEventListener('click', () => {
+                burger_.classList.remove(burgerActiveClass);
+                header_.classList.remove(headerActiveClass);
+                headerMenu_.style.height = 0 + 'px';
+            });
+        });
+
     }
 
     burger({
@@ -28,31 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
         headerMenu: '.header__menu',
         itemHeight: 28,
         itemMarginBottom: 25,
-        headerMenuPaddingTopBottom: 50
+        headerMenuPaddingTopBottom: 50,
+        itemsClose: '.header__menu__li'
     });
 
     // sound
 
-    async function sound(button, buttonActiveClass, video) {
+    function sound(button, buttonActiveClass, video) {
         const button_ = document.querySelector(button);
         const video_ = document.querySelector(video);
-        // await video_.play();
-        video_.addEventListener('ready', () => {
+        // video_.volume = 0;
+        // video_.play();
+        video_.onloadeddata = function() {
+            video_.volume = 0;
             video_.play();
-        });
-        // window.setTimeout(() => {
-        //     video_.play(); 
-        // }, 2000);
-        video_.volume = 0;
-        button_.addEventListener('click', () => {
-            video_.play(); 
-            button_.classList.toggle(buttonActiveClass);
-            if ( button_.classList.contains(buttonActiveClass)) {
-                video_.volume = 0.7;
-            } else {
-                video_.volume = 0;
-            }
-        });
+            button_.addEventListener('click', () => {
+                video_.play();
+                button_.classList.toggle(buttonActiveClass);
+                if ( button_.classList.contains(buttonActiveClass)) {
+                    video_.volume = 0.7;
+                } else {
+                    video_.volume = 0;
+                }
+            });
+            // button_.click();
+        };
+        
         // await video_.play();
 
     }
@@ -276,10 +286,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // tabs
 
-    function tabs ({ tabsButtons, tabsContents, tabButtonsActiveClass, tabContentsActiveClass }) {
+    function tabs ({ tabsButtons, tabsContents, tabButtonsActiveClass, tabContentsActiveClass, linkButtons0, linkButtons1 }) {
 
         const tabsButtons_ = document.querySelectorAll(tabsButtons);
         const tabsContents_ = document.querySelectorAll(tabsContents);
+        const linkButtons0_ = document.querySelectorAll(linkButtons0);
+        const linkButtons1_ = document.querySelectorAll(linkButtons1);
 
         tabsButtons_.forEach((button, index1) => {
             button.addEventListener('click', () => {
@@ -287,12 +299,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearActiveClass(tabsContents_, tabContentsActiveClass);
                 button.classList.add(tabButtonsActiveClass);
 
-                tabsContents_.forEach((content, index2) => {
-                    if (index1 === index2) {
-                        content.classList.add(tabContentsActiveClass);
-                    }
-                });
+                tabsContents_[index1].classList.add(tabContentsActiveClass);
 
+            });
+        });
+        linkButtons0_.forEach(item => {
+            item.addEventListener('click', () => {
+                clearActiveClass(tabsButtons_, tabButtonsActiveClass);
+                clearActiveClass(tabsContents_, tabContentsActiveClass);
+                tabsButtons_[0].classList.add(tabButtonsActiveClass);
+                tabsContents_[0].classList.add(tabContentsActiveClass);
+            });
+        });
+        linkButtons1_.forEach(item => {
+            item.addEventListener('click', () => {
+                clearActiveClass(tabsButtons_, tabButtonsActiveClass);
+                clearActiveClass(tabsContents_, tabContentsActiveClass);
+                tabsButtons_[1].classList.add(tabButtonsActiveClass);
+                tabsContents_[1].classList.add(tabContentsActiveClass);
             });
         });
 
@@ -302,7 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tabsButtons: '.objects__tabs__button',
         tabsContents: '.objects__tabs__content',
         tabButtonsActiveClass: 'objects__tabs__button--active',
-        tabContentsActiveClass: 'objects__tabs__content--active'
+        tabContentsActiveClass: 'objects__tabs__content--active',
+        linkButtons0: '.header__link--buy',
+        linkButtons1: '.header__link--rent'
     });
 
     function clearActiveClass(arr, activeClass) {
@@ -330,10 +356,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let scrollWidth = calcScroll();
 
-    function modal(modal, modalActiveClass, triggers, modalClose) {
+    function modal(modal, modalActiveClass, triggers, modalClose, modalCloseAdd) {
         const triggers_ = document.querySelectorAll(triggers),
               modal_ = document.querySelector(modal),
-              modalClose_ = document.querySelector(modalClose);
+              modalClose_ = document.querySelector(modalClose),
+              modalCloseAdd_ = document.querySelector(modalCloseAdd);
 
         if (triggers_.length > 0) {
             triggers_.forEach(item => {
@@ -349,6 +376,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.overflow = '';
                 document.body.style.marginRight = '0px';
             });
+            modalCloseAdd_.addEventListener('click', () => {
+                modal_.classList.remove(modalActiveClass);
+                document.body.style.overflow = '';
+                document.body.style.marginRight = '0px';
+            });
     
             modal_.addEventListener('click', (e) => {
                 if (e.target.classList.contains(modal.replace(/\./, ''))) {
@@ -360,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    modal('.modal-obj', 'modal--active', '[data-modal]', '.modal-obj__close img');
+    modal('.modal-obj', 'modal--active', '[data-modal]', '.modal-obj__close img', '.modal-obj__button');
 
     // slider and data in modal
 
@@ -545,7 +577,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    function sliderModal({_triggers, _arrowLeft, _arrowRight, _iamges, _area, _feature, _text, _location, _price, _field}) {
+    function anim(element) {
+        let startAnimation = null;
+
+        const step = (timestamp) => {
+            if (!startAnimation) startAnimation = timestamp;
+            let progress = timestamp - startAnimation;
+            element.style.opacity = progress/500;
+            if (progress < 500) {
+                window.requestAnimationFrame(step);
+            }
+        }
+    
+        window.requestAnimationFrame(step);
+        startAnimation = null;
+    }
+
+    function sliderModal({_triggers, _arrowLeft, _arrowRight, _iamges, _area, _feature, _text, _location, _price, _field, _slider}) {
         const triggers_ = document.querySelectorAll(_triggers);
         const iamges_ = document.querySelectorAll(_iamges);
         const area_ = document.querySelector(_area);
@@ -556,6 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const arrowLeft_ = document.querySelector(_arrowLeft);
         const arrowRight_ = document.querySelector(_arrowRight);
         const field_ = document.querySelector(_field);
+        const slider_ = document.querySelector(_slider);
 
         triggers_.forEach((trigger, index) => {
             trigger.addEventListener('click', () => {
@@ -595,12 +644,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
                 arrowRight_.addEventListener('click', () => {
+                    anim(slider_);
                     arr.push(arr.shift());
                     iamges_.forEach((img, index2) => {
                         img.setAttribute('src', arr[index2]);
                     });
                 });
                 arrowLeft_.addEventListener('click', () => {
+                    anim(slider_);
                     arr.unshift(arr.pop());
                     iamges_.forEach((img, index2) => {
                         img.setAttribute('src', arr[index2]);
@@ -622,7 +673,8 @@ document.addEventListener('DOMContentLoaded', () => {
         _price: '.modal-obj__price',
         _arrowLeft: '.modal-obj__arrow--left',
         _arrowRight: '.modal-obj__arrow--right',
-        _field: '.modal-obj__field'
+        _field: '.modal-obj__field',
+        _slider: '.modal-obj__slider'
     })
     sliderModal({
         _triggers: '[data-more2]',
@@ -634,7 +686,8 @@ document.addEventListener('DOMContentLoaded', () => {
         _price: '.modal-obj__price',
         _arrowLeft: '.modal-obj__arrow--left',
         _arrowRight: '.modal-obj__arrow--right',
-        _field: '.modal-obj__field'
+        _field: '.modal-obj__field',
+        _slider: '.modal-obj__slider'
     })
     sliderModal({
         _triggers: '[data-more3]',
@@ -646,7 +699,8 @@ document.addEventListener('DOMContentLoaded', () => {
         _price: '.modal-obj__price',
         _arrowLeft: '.modal-obj__arrow--left',
         _arrowRight: '.modal-obj__arrow--right',
-        _field: '.modal-obj__field'
+        _field: '.modal-obj__field',
+        _slider: '.modal-obj__slider'
     })
     sliderModal({
         _triggers: '[data-more4]',
@@ -658,7 +712,8 @@ document.addEventListener('DOMContentLoaded', () => {
         _price: '.modal-obj__price',
         _arrowLeft: '.modal-obj__arrow--left',
         _arrowRight: '.modal-obj__arrow--right',
-        _field: '.modal-obj__field'
+        _field: '.modal-obj__field',
+        _slider: '.modal-obj__slider'
     })
 
 });
