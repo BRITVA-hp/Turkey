@@ -48,8 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const video_ = document.querySelector(video);
         video_.onloadeddata = function() {
             video_.muted = true;
+            video_.play();
             button_.addEventListener('click', () => {
-                video_.play();
+                
                 button_.classList.toggle(buttonActiveClass);
                 if ( button_.classList.contains(buttonActiveClass)) {
                     video_.muted = false;
