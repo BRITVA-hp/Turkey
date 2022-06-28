@@ -42,10 +42,10 @@
                     </nav>
                 </div>
 
-                <button class="button header__button">Бесплатный звонок</button>
+                <button data-modalMain class="button header__button">Бесплатный звонок</button>
 
                 <div class="row header__wrap">
-                    <a class="header__phone">
+                    <a data-modalMain class="header__phone">
                         <span>+7 960 175 69 01</span>
                         <span>Бесплатный звонок</span>
                     </a>
@@ -88,7 +88,7 @@
                 <h1 class="main__title">Путешествуйте с комфортом!</h1>
                 <h2 class="main__subtitle">Дополнительные скидки на аренду квартиры до 30% + бесплатный трансфер до дома!</h2>
                 <a href="#form" class="button main__button">Подробнее</a>
-                <div class="main__volume"></div>
+                <!-- <div class="main__volume"></div> -->
             </div>
             <a href="#form" class="button main__button button--effect main__button--mob">Подробнее</a>
         </section>
@@ -549,6 +549,26 @@
             <img src="img/closeThank.png" alt="close" class="modal-thank__close">
             <h3 class="modal-thank__title">Заявка отправлена!</h3>
             <p class="modal-thank__text">Мы получили вашу заявку. <br> Наш менеджер свяжится с вами.</p>
+        </div>
+    </div>
+
+    <div class="modal modal-main">
+        <div class="modal-main__dialog row">
+            <img src="img/modal/close.png" alt="close" class="modal-main__close">
+            <form action="#" class="modal-main__box">
+                <h3 class="modal-main__title">Обратный звонок</h3>
+                <p class="modal-main__text">Дополнительные скидки на аренду квартиры до 30% + бесплатный трансфер до дома. Получите горячие предложения прямо сейчас!</p>
+                <div class="modal-main__input-group">
+                    <input id="modalName" placeholder="Ваше Имя" type="text" class="modal-main__input">
+                </div>
+                <div class="modal-main__input-group">
+                    <input id="modalName" placeholder="+7 (___) ___ - __ - __" type="tel" class="modal-main__input">
+                </div>
+                <button class="button modal-main__button">Заказать звонок</button>
+            </form>
+            <div class="modal-main__img">
+                <img src="img/modal/img.png" alt="hello">
+            </div>
         </div>
     </div>
 

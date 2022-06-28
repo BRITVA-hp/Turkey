@@ -348,7 +348,7 @@ body {
   font-size: 20px;
   font-style: normal;
   line-height: 120%;
-  font-weight: 300;
+  font-weight: normal;
   color: #808080;
   background-color: #FAFAFA; }
 
@@ -459,8 +459,7 @@ body {
 .header {
   padding-top: 10px;
   position: relative;
-  z-index: 2;
-  margin-bottom: -168px; }
+  z-index: 2; }
   .header__menu {
     transition: 0.3s;
     position: absolute;
@@ -495,7 +494,8 @@ body {
   .header__wrap {
     display: none; }
   .header__phone {
-    margin-right: 34px; }
+    text-decoration: none;
+    color: #808080; }
     .header__phone span {
       display: block;
       font-family: 'Open Sans', sans-serif;
@@ -583,9 +583,9 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: url(../img/main/volume.png) no-repeat center, #fff; }
+    background: url(../img/main/volume.png) no-repeat center/contain, #fff; }
     .main__volume--active {
-      background: url(../img/main/mute.png) no-repeat center, #fff; }
+      background: url(../img/main/mute.png) no-repeat center/contain, #fff; }
   .main__video-box {
     position: absolute;
     top: 0;
@@ -674,7 +674,8 @@ body {
       margin-bottom: 20px; }
     .advantages__card__text {
       max-width: 255px;
-      margin: auto; }
+      margin: auto;
+      font-weight: normal; }
 
 .objects {
   background: #F2F2F2;
@@ -939,6 +940,58 @@ body {
   .modal--active {
     opacity: 1;
     visibility: visible; }
+  .modal-main__img {
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .modal-main__img img {
+      min-width: 100%; }
+  .modal-main__button {
+    width: 100%;
+    padding: 23px 0; }
+  .modal-main__input {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #C8C8C8;
+    padding: 23px 28px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #C4C4C4; }
+    .modal-main__input:focus {
+      outline: none; }
+  .modal-main__input-group {
+    width: 100%;
+    margin-bottom: 13px; }
+  .modal-main__text {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 155%;
+    color: #3D3D3F;
+    margin-bottom: 24px; }
+  .modal-main__title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 110%;
+    color: #808080;
+    margin-bottom: 22px; }
+  .modal-main__dialog {
+    background: #F2F2F2;
+    width: 100%;
+    max-width: 1060px;
+    position: relative; }
+  .modal-main__close {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    cursor: pointer; }
+  .modal-main__box {
+    padding: 90px 75px;
+    width: 51%; }
   .modal-thank__close {
     position: absolute;
     top: 30px;
@@ -1081,6 +1134,14 @@ body {
     padding-bottom: 150px; } }
 
 @media screen and (max-width: 1200px) {
+  .modal-main__title {
+    font-size: 33px; }
+  .modal-main__dialog {
+    max-width: 900px; }
+  .modal-main__box {
+    padding: 55px 60px; }
+  .modal-main__text {
+    font-size: 15px; }
   .modal-obj__close {
     width: 40px;
     right: 25px;
@@ -1185,17 +1246,32 @@ body {
     .main__subtitle {
       font-size: 18px;
       max-width: 520px; }
-  .header {
-    margin-bottom: -114px; }
-    .header__link {
-      font-size: 16px; }
-    .header__li {
-      margin-right: 20px; }
-    .header__button {
-      font-size: 16px;
-      width: 220px; } }
+  .header__link {
+    font-size: 16px; }
+  .header__li {
+    margin-right: 20px; }
+  .header__button {
+    font-size: 16px;
+    width: 220px; } }
 
 @media screen and (max-width: 991px) {
+  .modal-main__input {
+    padding: 14px 28px; }
+  .modal-main__button {
+    font-size: 16px;
+    padding: 18px 0; }
+  .modal-main__title {
+    font-size: 26px; }
+  .modal-main__text {
+    font-size: 14px; }
+  .modal-main__img {
+    display: none; }
+  .modal-main__box {
+    width: 100%;
+    padding: 90px 22px 70px;
+    text-align: center; }
+  .modal-main__dialog {
+    max-width: 400px; }
   .modal-obj__slider {
     margin-bottom: 30px; }
   .modal-obj__button {
@@ -1267,9 +1343,10 @@ body {
     padding-top: 16px;
     padding-bottom: 20px; }
     .main__volume {
-      right: 50%;
-      transform: translateX(50%);
-      bottom: -55px; }
+      right: 5px;
+      bottom: 5px;
+      width: 30px;
+      height: 30px; }
     .main__button {
       display: none; }
       .main__button--mob {
@@ -1293,10 +1370,14 @@ body {
   .header {
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-bottom: 0;
     background: #fff; }
     .header--active {
       background-color: #F2F2F2; }
+    .header__phone {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
     .header__menu {
       display: flex; }
     .header__wrap {
@@ -1307,6 +1388,8 @@ body {
       display: none; } }
 
 @media screen and (max-width: 767px) {
+  .faq__item__content {
+    font-weight: 600; }
   .modal-thank__text {
     font-size: 16px; }
   .modal-thank__dialog {
@@ -1397,11 +1480,13 @@ body {
     text-align: center;
     margin: 0;
     margin-bottom: 40px;
-    width: 100%; }
+    width: 100%;
+    font-weight: 600; }
   .we__row {
     flex-direction: column; }
   .we__ul {
-    list-style-type: none; }
+    list-style-type: none;
+    padding: 0; }
   .advantages__row {
     display: flex;
     justify-content: center;
@@ -1418,7 +1503,8 @@ body {
       margin-right: 20px; }
     .advantages__card__text {
       max-width: none;
-      margin: 0; }
+      margin: 0;
+      font-weight: 600; }
       .advantages__card__text br {
         display: none; } }
 
@@ -1489,6 +1575,11 @@ body {
   .main {
     padding-left: 12px;
     padding-right: 12px; }
+    .main__volume {
+      width: 25px;
+      height: 25px; }
+    .main__box {
+      padding-bottom: 20px; }
   .header__phone {
     margin-right: 20px; }
     .header__phone span {

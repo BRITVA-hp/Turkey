@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
         video_.onloadeddata = function() {
             video_.muted = true;
             video_.play();
-            button_.addEventListener('click', () => {
+            // button_.addEventListener('click', () => {
                 
-                button_.classList.toggle(buttonActiveClass);
-                if ( button_.classList.contains(buttonActiveClass)) {
-                    video_.muted = false;
-                } else {
-                    video_.muted = true;
-                }
-            });
+            //     button_.classList.toggle(buttonActiveClass);
+            //     if ( button_.classList.contains(buttonActiveClass)) {
+            //         video_.muted = false;
+            //     } else {
+            //         video_.muted = true;
+            //     }
+            // });
         };
 
     }
@@ -371,11 +371,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.overflow = '';
                 document.body.style.marginRight = '0px';
             });
-            modalCloseAdd_.addEventListener('click', () => {
-                modal_.classList.remove(modalActiveClass);
-                document.body.style.overflow = '';
-                document.body.style.marginRight = '0px';
-            });
+            if(modalCloseAdd_) {
+                modalCloseAdd_.addEventListener('click', () => {
+                    modal_.classList.remove(modalActiveClass);
+                    document.body.style.overflow = '';
+                    document.body.style.marginRight = '0px';
+                });
+            }
     
             modal_.addEventListener('click', (e) => {
                 if (e.target.classList.contains(modal.replace(/\./, ''))) {
@@ -387,6 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    modal('.modal-main', 'modal--active', '[data-modalMain]', '.modal-main__close');
     modal('.modal-obj', 'modal--active', '[data-modal]', '.modal-obj__close img', '.modal-obj__button');
 
     // slider and data in modal
